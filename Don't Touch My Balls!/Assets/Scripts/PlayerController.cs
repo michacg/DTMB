@@ -6,7 +6,8 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 
-	public float speed = 5;
+	public float horizontal_speed = 5;
+	public float vertical_speed = 5;
 
 	private Rigidbody2D rb;
 
@@ -18,25 +19,25 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		Debug.Log(Input.GetAxis("Vertical"));
+
 		if (Input.GetAxis("Horizontal") == 1)
 		{
-			rb.AddForce( new Vector2(speed * Time.deltaTime , 0));
+			rb.AddForce( new Vector2(horizontal_speed * Time.deltaTime , 0));
 		}
 
 		if (Input.GetAxis("Horizontal") == -1)
 		{
-			rb.AddForce( new Vector2(-speed * Time.deltaTime , 0));
+			rb.AddForce( new Vector2(-horizontal_speed * Time.deltaTime , 0));
 		}
 
-		if (Input.GetAxis("Vertical") > 1)
+		if (Input.GetAxis("Vertical") == 1)
 		{
-			rb.AddForce( new Vector2(0 , speed * Time.deltaTime));
+			rb.AddForce( new Vector2(0 , vertical_speed * Time.deltaTime));
 		}
 
-		if (Input.GetAxis("Horizontal") < -1)
+		if (Input.GetAxis("Vertical") == -1)
 		{
-			rb.AddForce( new Vector2(0 , -speed * Time.deltaTime));
+			rb.AddForce( new Vector2(0 , -vertical_speed * Time.deltaTime));
 		}
 
 		
