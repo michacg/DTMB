@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour {
 
 		if (Input.GetAxis("Vertical") == 1)
 		{
-			rb.AddForce( new Vector2(0 , vertical_speed * Time.deltaTime));
+			rb.AddForce( new Vector2(0 , vertical_speed * Time.deltaTime))
 		}
 
 		if (Input.GetAxis("Vertical") == -1)
