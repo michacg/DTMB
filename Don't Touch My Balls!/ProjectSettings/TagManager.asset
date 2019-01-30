@@ -44,6 +44,9 @@ TagManager:
   - name: Background
     uniqueID: 600358923
     locked: 0
+  - name: Drink
+    uniqueID: 2900119027
+    locked: 0
   - name: Foreground
     uniqueID: 935241657
     locked: 0
