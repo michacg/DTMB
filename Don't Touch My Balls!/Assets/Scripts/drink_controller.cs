@@ -33,6 +33,16 @@ public class drink_controller : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log(collision);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("!!!!" + collision);
+    }
+
     private float CalculateDrinkSpeed()
     {
         return (cup_size / timer) * Time.deltaTime;
