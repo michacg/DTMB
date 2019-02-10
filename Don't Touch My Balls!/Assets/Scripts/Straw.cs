@@ -3,23 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-/* KNOWN BUGS:
- *  1. Straw timer does not work properly right now. It
- *     waits for the 5 seconds interval only on the first
- *     time. Then it seems to go down in much shorter 
- *     time than 5 seconds.
- *  2. There are some instances where the bottom of the 
- *     straw doe snot line up with the top of the drink and
- *     the drink has already starts decreasing. And vice
- *     versa.
-*/
+/* TO DO: 
+ * 1. Implement randomized speed on rigidBody velocity. (Done)
+ * 2. Change the use of "top" GameObject to using 
+ *    OnTriggerEnter. (Done)
+ * 3. Add Colliders on boba balls.
+ * 4. Detect boba ball collisions.
+ */
 
 public class Straw : MonoBehaviour
 {
 	public GameObject leftBound;
 	public GameObject rightBound;
 	public GameObject upperBound;
-    public GameObject drinkBound;
 
 	public float interval;
 
@@ -28,8 +24,6 @@ public class Straw : MonoBehaviour
 	private float lower_y;
 	private float upper_y;
 
-    private float drink_y;
-
 	private float timeElapsed;
     private float speed;
     private float rand_time;
@@ -37,24 +31,23 @@ public class Straw : MonoBehaviour
 	private Vector2 fallDirection;
     private Vector2 sideDirection;
 
-    private drink_controller drinkController;
+    private Rigidbody2D rigidBody;
 
     // Start is called before the first frame update
     void Start()
     {
+        rigidBody = GetComponent<Rigidbody2D>();
+        rigidBody.gravityScale = 0.0f;
+
     	left_x = leftBound.transform.position.x;
     	right_x = rightBound.transform.position.x;
     	lower_y = leftBound.transform.position.y;
     	upper_y = upperBound.transform.position.y;
-
-        drink_y = drinkBound.transform.position.y;
         
     	fallDirection = new Vector2(0, 0);
         sideDirection = Vector2.right;
     	timeElapsed = 0;
         transform.position = new Vector2(transform.position.x, upper_y);
-
-        drinkController = GameObject.Find("drink").GetComponent<drink_controller>();
     }
 
     // Update is called once per frame
@@ -65,7 +58,7 @@ public class Straw : MonoBehaviour
     	timeElapsed += Time.deltaTime;
 
         // straw is below the cup
-    	if (this.transform.position.y <= lower_y)
+        if (this.transform.position.y <= lower_y)
     	{
             if (fallDirection != Vector2.up)
             {
@@ -81,6 +74,7 @@ public class Straw : MonoBehaviour
     		if (timeElapsed >= interval)
     		{
                 MoveSide();
+
                 if (fallDirection != Vector2.down)
                 {   
                     fallDirection = Vector2.down;
@@ -97,32 +91,21 @@ public class Straw : MonoBehaviour
     			fallDirection = new Vector2(0, 0);
     		}
     	}
-        // straw is below the drink line
-        else if (transform.position.y <= drink_y)
-        {
-            // Make the drink start decreasing
-            drinkController.IsDrinking(true);
-        }
-        // straw is above the drink line
-        else if (transform.position.y > drink_y)
-        {
-            // Make the drink stop decreasing
-            drinkController.IsDrinking(false);
-        }
 
     	MoveDown();
     }
 
     void MoveDown()
     {
-        this.transform.Translate(fallDirection * speed * Time.deltaTime);
+        // this.transform.Translate(fallDirection * speed * Time.deltaTime);
         
-        /*
-        Debug.Log(GetComponent<Rigidbody2D>().velocity);
+        GetComponent<Rigidbody2D>().velocity = fallDirection * speed;
+
+        // Debug.Log(GetComponent<Rigidbody2D>().velocity);
         // GetComponent<Rigidbody2D>().AddForce(direction * speed * Time.deltaTime, ForceMode2D.Impulse);
-        GetComponent<Rigidbody2D>().velocity = direction * speed * Time.deltaTime;
-        Debug.Log("second line " + GetComponent<Rigidbody2D>().velocity);
-        */
+        // GetComponent<Rigidbody2D>().velocity = direction * speed * Time.deltaTime;
+        // Debug.Log("second line " + GetComponent<Rigidbody2D>().velocity);
+
     }
 
     void MoveSide()
