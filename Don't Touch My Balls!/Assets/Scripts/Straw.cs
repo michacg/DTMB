@@ -68,6 +68,7 @@ public class Straw : MonoBehaviour
             }
 
         }
+        
         // straw is completely out of the cup
     	else if (this.transform.position.y >= upper_y)
     	{
@@ -124,5 +125,19 @@ public class Straw : MonoBehaviour
         }
 
         this.transform.Translate(sideDirection * speed * Time.deltaTime);
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.CompareTag("Boba"))
+        {
+            Destroy(collider.gameObject);
+            fallDirection = Vector2.up;
+        }
+
+        else if (collider.CompareTag("Player"))
+        {
+            LevelManager.instance.isGameOver = true;
+        }
     }
 }

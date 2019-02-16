@@ -16,8 +16,6 @@ using UnityEngine;
 
 public class drink_controller : MonoBehaviour
 {
-    public float timer = 60;
-    private float time_remaining = 60;
     private float drinking_speed = 1;
     // private float unaccounted_time = 0;
     
@@ -26,15 +24,15 @@ public class drink_controller : MonoBehaviour
 
     private bool drinking;
 
-    // Start is called before the first frame update
     void Start()
     {
-        time_remaining = timer; 
+        LevelManager.instance.timeRemaining = LevelManager.instance.startTime; 
 
         // Get the height of the drink
         // NOTE: this is assuming that the drink is correctly scaled to 
         // touching the bottom of the cup.
         // float cup_size = gameObject.transform.lossyScale.y;
+
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         cup_size = sr.bounds.size.y;
         top = FindTopVector();
@@ -42,18 +40,17 @@ public class drink_controller : MonoBehaviour
         drinking = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        time_remaining -= Time.deltaTime;
-        Debug.Log(time_remaining);
+        LevelManager.instance.timeRemaining -= Time.deltaTime;
+        Debug.Log(LevelManager.instance.timeRemaining);
 
         if (drinking)
         {
             RemoveDrink();
         }
 
-        if (time_remaining <= 0)
+        if (LevelManager.instance.timeRemaining <= 0)
         {
             Debug.Log("Game Over time boi");
         }
@@ -75,15 +72,15 @@ public class drink_controller : MonoBehaviour
 
     private float CalculateDrinkSpeed()
     {
-        return (cup_size / timer) * Time.deltaTime;
+        return (cup_size / LevelManager.instance.startTime) * Time.deltaTime;
     }
 
     private void RemoveDrink()
     {
         // gameObject.transform.Translate(Vector2.down * CalculateDrinkSpeed());
         
-        drinking_speed = (cup_size - Vector2.Distance(top, FindTopVector())) / time_remaining;
-       
+        drinking_speed = (cup_size - Vector2.Distance(top, FindTopVector())) / LevelManager.instance.timeRemaining;
+        
         gameObject.transform.Translate(Vector2.down * drinking_speed * Time.deltaTime);
     }
 
