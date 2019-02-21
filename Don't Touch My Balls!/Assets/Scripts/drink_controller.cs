@@ -42,8 +42,9 @@ public class drink_controller : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(drinking);
         LevelManager.instance.timeRemaining -= Time.deltaTime;
-        Debug.Log(LevelManager.instance.timeRemaining);
+        //Debug.Log(LevelManager.instance.timeRemaining);
 
         if (drinking)
         {
@@ -58,30 +59,40 @@ public class drink_controller : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        drinking = true;
-        
+        if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.y < 0)
+        {
+            drinking =  true;
+        }
+        else
+        {
+            drinking = false;
+            drinking_speed = 0;
+        }
+
         // drinking_speed = (cup_size - Vector2.Distance(top, transform.position)) / time_remaining; // speed based on per unit
         // drinking_speed = drinking_speed / 10; // speed based on per pixel
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        drinking = false;
-        drinking_speed = 0;
+        // drinking = false;
+        // drinking_speed = 0;
     }
 
     private float CalculateDrinkSpeed()
     {
-        return (cup_size / LevelManager.instance.startTime) * Time.deltaTime;
+        // Debug.Log(cup_size + ", " + LevelManager.instance.startTime);
+
+        return (cup_size / LevelManager.instance.startTime) * Time.deltaTime * 5; //hardcoded
     }
 
     private void RemoveDrink()
     {
-        // gameObject.transform.Translate(Vector2.down * CalculateDrinkSpeed());
+        //gameObject.transform.Translate(Vector2.down * CalculateDrinkSpeed());
         
-        drinking_speed = (cup_size - Vector2.Distance(top, FindTopVector())) / LevelManager.instance.timeRemaining;
+        //drinking_speed = (cup_size - Vector2.Distance(top, FindTopVector())) / LevelManager.instance.timeRemaining;
         
-        gameObject.transform.Translate(Vector2.down * drinking_speed * Time.deltaTime);
+        gameObject.transform.Translate(Vector2.down * CalculateDrinkSpeed());
     }
 
     private Vector2 FindTopVector()

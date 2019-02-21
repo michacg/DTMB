@@ -81,7 +81,7 @@ public class Straw : MonoBehaviour
                     fallDirection = Vector2.down;
     			    timeElapsed = 0;
 
-                    rand_time = Random.Range(0.05f, 1);
+                    rand_time = Random.Range(0.5f, 2);
                     speed = (upper_y - lower_y) / rand_time;
                 }
             }
@@ -138,6 +138,7 @@ public class Straw : MonoBehaviour
         else if (collider.CompareTag("Player"))
         {
             LevelManager.instance.isGameOver = true;
+            Destroy(collider.gameObject);
         }
     }
 }
