@@ -24,13 +24,15 @@ public class CustomizationHandler : MonoBehaviour
     {
         button.GetComponent<Button>().interactable = false;
         drinkSprite = drink.GetComponent<SpriteRenderer>();
-        drinkSprite.color = new Color(1f, 1f, 1f, 0);
     }
 
     void Update()
     {
-        if (ReadyCheck())
+        if (flavorSelected)
+        {
+            FillCup();
             button.GetComponent<Button>().interactable = true;
+        }
         else
             button.GetComponent<Button>().interactable = false;
     }
@@ -42,6 +44,7 @@ public class CustomizationHandler : MonoBehaviour
 
         drinkSprite.color = new Color(0.8078431f, 0.6941177f, 0.5843138f);
         flavorSelected = true;
+        drink.transform.position = new Vector2(0, -5);
 
         buttonText = milkButton.GetComponentInChildren<TextMeshProUGUI>();
         buttonText.color = Color.white;
@@ -54,6 +57,7 @@ public class CustomizationHandler : MonoBehaviour
 
         drinkSprite.color = new Color(0.6226543f, 0.8962264f, 0.5707102f);
         flavorSelected = true;
+        drink.transform.position = new Vector2(0, -5);
 
         buttonText = matchaButton.GetComponentInChildren<TextMeshProUGUI>();
         buttonText.color = Color.white;
@@ -66,6 +70,7 @@ public class CustomizationHandler : MonoBehaviour
 
         drinkSprite.color = new Color(1f, 0.5450981f, 0.2980392f);
         flavorSelected = true;
+        drink.transform.position = new Vector2(0, -5);
 
         buttonText = thaiButton.GetComponentInChildren<TextMeshProUGUI>();
         buttonText.color = Color.white;
@@ -75,6 +80,7 @@ public class CustomizationHandler : MonoBehaviour
     {
         if (buttonText != null)
             buttonText.color = Color.black;
+        drink.transform.position = new Vector2(0, -5);
 
         drinkSprite.color = new Color(0.6509804f, 0.5882353f, 0.7254902f);
         flavorSelected = true;
@@ -88,8 +94,9 @@ public class CustomizationHandler : MonoBehaviour
         SceneManager.LoadScene(scene);
     }
 
-    public bool ReadyCheck()
+    public void FillCup()
     {
-        return flavorSelected;
+        if (drink.transform.position.y <= -0.75f)
+            drink.transform.Translate(Vector2.up * Time.deltaTime * 4f);
     }
 }
