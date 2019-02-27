@@ -53,7 +53,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\CustomizationHandler.cs" />
+     <Compile Include="Assets\Customization\BobaBehavior.cs" />
+     <Compile Include="Assets\Customization\CustomizationHandler.cs" />
+     <Compile Include="Assets\Customization\Particles.cs" />
      <Compile Include="Assets\Scripts\drink_controller.cs" />
      <Compile Include="Assets\Scripts\LevelManager.cs" />
      <Compile Include="Assets\Scripts\MainMenuHandler.cs" />

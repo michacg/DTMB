@@ -13,6 +13,8 @@ public class LevelManager : MonoBehaviour
     public GameObject drink;
     public SpriteRenderer drinkSprite;
 
+    private bool flavorSelected = false;
+
     public int bobaQuantity = 20;
 
     void Awake()
@@ -34,6 +36,11 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        SetTeaColor();
+    }
+
+    void SetTeaColor()
+    {
         if (drink == null)
         {
             drink = GameObject.FindWithTag("Drink");
@@ -43,5 +50,4 @@ public class LevelManager : MonoBehaviour
         if (drinkSprite.color != teaFlavor)
             drinkSprite.color = teaFlavor;
     }
-
 }

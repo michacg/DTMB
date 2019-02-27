@@ -52,6 +52,9 @@ TagManager:
   - name: Foreground
     uniqueID: 935241657
     locked: 0
-  - name: Above
+  - name: Above Foreground
     uniqueID: 1410759007
+    locked: 0
+  - name: Boba
+    uniqueID: 903558993
     locked: 0
