@@ -136,7 +136,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100455652}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4498e393e935e9b4f8ee4eddb5520b80, type: 3}
   m_Name: 
@@ -144,6 +144,9 @@ MonoBehaviour:
   isGameOver: 0
   startTime: 90
   timeRemaining: 0
+  teaFlavor: {r: 0.6509804, g: 0.5882353, b: 0.7254902, a: 1}
+  drink: {fileID: 498042052}
+  drinkSprite: {fileID: 498042055}
   bobaQuantity: 20
 --- !u!4 &100455654
 Transform:
@@ -203,6 +206,12 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5, y: 0.42706537}
   m_EdgeRadius: 0
+--- !u!212 &498042055 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5191871499631821979, guid: 264f20a5397b355468afd580d9a99e13,
+    type: 3}
+  m_PrefabInstance: {fileID: 502970265}
+  m_PrefabAsset: {fileID: 0}
 --- !u!68 &498042056
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -232,6 +241,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: drink
+      objectReference: {fileID: 0}
+    - target: {fileID: 215854062210274150, guid: 264f20a5397b355468afd580d9a99e13,
+        type: 3}
+      propertyPath: m_TagString
+      value: Drink
       objectReference: {fileID: 0}
     - target: {fileID: 3939227233343172095, guid: 264f20a5397b355468afd580d9a99e13,
         type: 3}

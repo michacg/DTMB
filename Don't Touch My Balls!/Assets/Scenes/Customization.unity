@@ -6046,7 +6046,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79c548a620a1b3e4fb13249ddd30c755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drink: {fileID: 1452915835}
   button: {fileID: 1414399535}
   milkButton: {fileID: 203565422}
   matchaButton: {fileID: 1697642197}
@@ -6798,6 +6797,56 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1126065351
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1126065353}
+  - component: {fileID: 1126065352}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1126065352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126065351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4498e393e935e9b4f8ee4eddb5520b80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGameOver: 0
+  startTime: 90
+  timeRemaining: 0
+  teaFlavor: {r: 0, g: 0, b: 0, a: 0}
+  drink: {fileID: 1452915835}
+  drinkSprite: {fileID: 1452915836}
+  bobaQuantity: 20
+--- !u!4 &1126065353
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126065351}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.2951498, y: 3.5465884, z: -9.72902}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1167206826
 GameObject:
   m_ObjectHideFlags: 0
@@ -7679,6 +7728,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1887798516}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &1452915836 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5191871499631821979, guid: 264f20a5397b355468afd580d9a99e13,
+    type: 3}
+  m_PrefabInstance: {fileID: 1887798516}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1485577530 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 164270354081045022, guid: 5b2e5f6a310f81d48bce6e8ab43f2a0d,
@@ -8108,6 +8163,11 @@ PrefabInstance:
     - target: {fileID: 215854062210274150, guid: 264f20a5397b355468afd580d9a99e13,
         type: 3}
       propertyPath: m_Name
+      value: Drink
+      objectReference: {fileID: 0}
+    - target: {fileID: 215854062210274150, guid: 264f20a5397b355468afd580d9a99e13,
+        type: 3}
+      propertyPath: m_TagString
       value: Drink
       objectReference: {fileID: 0}
     - target: {fileID: 3939227233343172095, guid: 264f20a5397b355468afd580d9a99e13,
