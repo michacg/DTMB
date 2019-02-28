@@ -42,12 +42,12 @@ public class LevelManager : MonoBehaviour
     void SetTeaColor()
     {
         if (drink == null)
-        {
             drink = GameObject.FindWithTag("Drink");
+        else
+        {
             drinkSprite = drink.GetComponent<SpriteRenderer>();
+            if (drinkSprite.color != teaFlavor)
+                drinkSprite.color = teaFlavor;
         }
-
-        if (drinkSprite.color != teaFlavor)
-            drinkSprite.color = teaFlavor;
     }
 }
