@@ -247,6 +247,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Drink
       objectReference: {fileID: 0}
+    - target: {fileID: 5191871499631821979, guid: 264f20a5397b355468afd580d9a99e13,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3939227233343172095, guid: 264f20a5397b355468afd580d9a99e13,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -311,11 +316,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 3.4065492
-      objectReference: {fileID: 0}
-    - target: {fileID: 5191871499631821979, guid: 264f20a5397b355468afd580d9a99e13,
-        type: 3}
-      propertyPath: m_SpriteSortPoint
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 264f20a5397b355468afd580d9a99e13, type: 3}
@@ -686,7 +686,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1200005677}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 291992b6c86e2744b9d8980542439ec0, type: 3}
+  m_Script: {fileID: 11500000, guid: ad6e9dd605168154bb49a06f48d5526a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   leftBound: {fileID: 1121034912}
