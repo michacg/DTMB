@@ -247,6 +247,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Drink
       objectReference: {fileID: 0}
+    - target: {fileID: 5191871499631821979, guid: 264f20a5397b355468afd580d9a99e13,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3939227233343172095, guid: 264f20a5397b355468afd580d9a99e13,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -311,11 +316,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 3.4065492
-      objectReference: {fileID: 0}
-    - target: {fileID: 5191871499631821979, guid: 264f20a5397b355468afd580d9a99e13,
-        type: 3}
-      propertyPath: m_SpriteSortPoint
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 264f20a5397b355468afd580d9a99e13, type: 3}
@@ -559,6 +559,75 @@ Transform:
   m_Father: {fileID: 2018843213}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &854890260
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5541014192917661996, guid: 2a78246eb09da5744ad4e94c5fae2176,
+        type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680558907358476863, guid: 2a78246eb09da5744ad4e94c5fae2176,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680558907358476863, guid: 2a78246eb09da5744ad4e94c5fae2176,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680558907358476863, guid: 2a78246eb09da5744ad4e94c5fae2176,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680558907358476863, guid: 2a78246eb09da5744ad4e94c5fae2176,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680558907358476863, guid: 2a78246eb09da5744ad4e94c5fae2176,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680558907358476863, guid: 2a78246eb09da5744ad4e94c5fae2176,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680558907358476863, guid: 2a78246eb09da5744ad4e94c5fae2176,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680558907358476863, guid: 2a78246eb09da5744ad4e94c5fae2176,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680558907358476863, guid: 2a78246eb09da5744ad4e94c5fae2176,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680558907358476863, guid: 2a78246eb09da5744ad4e94c5fae2176,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680558907358476863, guid: 2a78246eb09da5744ad4e94c5fae2176,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2a78246eb09da5744ad4e94c5fae2176, type: 3}
 --- !u!4 &1094592141 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 164270354081045022, guid: 5b2e5f6a310f81d48bce6e8ab43f2a0d,
@@ -686,7 +755,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1200005677}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 291992b6c86e2744b9d8980542439ec0, type: 3}
+  m_Script: {fileID: 11500000, guid: ad6e9dd605168154bb49a06f48d5526a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   leftBound: {fileID: 1121034912}

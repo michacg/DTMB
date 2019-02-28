@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -39,9 +39,10 @@ public class Straw : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         rigidBody.gravityScale = 0.0f;
 
-    	left_x = leftBound.transform.position.x;
-    	right_x = rightBound.transform.position.x;
-    	lower_y = leftBound.transform.position.y;
+        float width = GetComponent<Renderer>().bounds.size.x;
+    	left_x = leftBound.transform.position.x + width/2;
+    	right_x = rightBound.transform.position.x - width/2;
+        lower_y = leftBound.transform.position.y;
     	upper_y = upperBound.transform.position.y;
         
     	fallDirection = new Vector2(0, 0);
@@ -80,8 +81,7 @@ public class Straw : MonoBehaviour
                 {   
                     fallDirection = Vector2.down;
     			    timeElapsed = 0;
-
-                    rand_time = Random.Range(0.5f, 2);
+                    rand_time = Random.Range(0.5f, 1.0f);
                     speed = (upper_y - lower_y) / rand_time;
                 }
             }
