@@ -52,7 +52,8 @@ public class drink_controller : MonoBehaviour
 
         if (LevelManager.instance.timeRemaining <= 0)
         {
-            Debug.Log("Game Over time boi");
+            LevelManager.instance.isGameOver = true;
+            LevelManager.instance.hasWon = true;
         }
     }
 

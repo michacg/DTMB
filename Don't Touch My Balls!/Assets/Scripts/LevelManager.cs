@@ -6,6 +6,7 @@ public class LevelManager : MonoBehaviour
 {
 	public static LevelManager instance;
     public bool isGameOver;
+    public bool hasWon;
     public float startTime = 90f;
 	public float timeRemaining;
 
@@ -30,7 +31,8 @@ public class LevelManager : MonoBehaviour
         DontDestroyOnLoad(instance);
 
         timeRemaining = startTime;
-        isGameOver = false;
+        isGameOver    = false;
+        hasWon        = false;
     }
 
     // Update is called once per frame
