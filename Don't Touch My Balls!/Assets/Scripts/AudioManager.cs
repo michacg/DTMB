@@ -7,10 +7,9 @@ using System;
 
 public class AudioManager : MonoBehaviour
 {
-    private Sound s;
+    public Sound s;
     public Sound[] sounds;
     public static AudioManager instance;
-    public bool flag1 = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -38,43 +37,46 @@ public class AudioManager : MonoBehaviour
         Play("Opening");
     }
 
+
     // Update is called once per frame
     void Update()
     {
         s.source.volume = s.volume;
-        //if(!LevelManager.instance.isGameOver)
-        //{
-          //  if(!s.source.isPlaying)
-            //    Play("LoopTrack");
-
-        //}
-        //else
-        //{
-
-            if(s.name != "GameOverLoop")
+        try{
+            if(!LevelManager.instance.isGameOver)
             {
-
-                if(s.source.volume > 0)
-                {
-                    s.volume -= Time.deltaTime / 2.5f;  //For a duration of fadeTime, volume gradually decreases till its 0
-                    //WaitForSeconds(0.1f);
-                    ///StartCoroutine(FadeOut(1f));
-                    //flag1 = true;
-                }
-                if(s.volume <= 0) 
-                    s.source.Stop();
+                if(!s.source.isPlaying)
+                    Play("LoopTrack");
             }
+            else
+            {
+                if(s.name != "GameOverLoop")
+                {
+                     if(s.source.volume > 0)
+                        s.volume -= Time.deltaTime / 2.5f;  //For a duration of fadeTime, volume gradually decreases till its 0
+                    if(s.volume <= 0) 
+                        s.source.Stop();
+                }
+                if(!s.source.isPlaying)
+                {
+                    s.source.volume = s.volume;
+                    Play("GameOverLoop");
+                    if(s.source.volume < 1)
+                    {
+                        StartCoroutine(FadeIn(1f));
+                    }
+                }
+            }
+        }
+        catch(Exception e)
+        {
             if(!s.source.isPlaying)
             {
-                s.source.volume = s.volume;
-                Play("GameOverLoop");
-                if(s.source.volume < 1)
-                {
-                    StartCoroutine(FadeIn(1f));
-                }
+                Play("LoopTrack");
             }
+        }
 
-       // }
+        
     }
 
     public void Play (string name)
@@ -104,11 +106,6 @@ public class AudioManager : MonoBehaviour
             s.volume += Time.deltaTime / fadeTime; //fades in over course of seconds fadeTime
             yield return new WaitForSeconds(0.1f);
         }
-    }
-
-    public void stopAudio()
-    {
-        s.source.Stop();
     }
 
 
