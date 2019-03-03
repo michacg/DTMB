@@ -22,22 +22,22 @@ public class PlayerController : MonoBehaviour {
 
 		if (Input.GetAxis("Horizontal") == 1)
 		{
-			rb.AddForce( new Vector2(horizontal_speed * Time.deltaTime , 0));
+			rb.AddForce( new Vector2(horizontal_speed * Time.deltaTime , 0), ForceMode2D.Impulse);
 		}
 
 		if (Input.GetAxis("Horizontal") == -1)
 		{
-			rb.AddForce( new Vector2(-horizontal_speed * Time.deltaTime , 0));
+			rb.AddForce( new Vector2(-horizontal_speed * Time.deltaTime , 0), ForceMode2D.Impulse);
 		}
 
 		if (Input.GetAxis("Vertical") == 1)
 		{
-			rb.AddForce( new Vector2(0 , vertical_speed * Time.deltaTime));
+			rb.AddForce( new Vector2(0 , vertical_speed * Time.deltaTime), ForceMode2D.Impulse);
 		}
 
 		if (Input.GetAxis("Vertical") == -1)
 		{
-			rb.AddForce( new Vector2(0 , -vertical_speed * Time.deltaTime));
+			rb.AddForce( new Vector2(0 , -vertical_speed * Time.deltaTime), ForceMode2D.Impulse);
 		}
 
 		
