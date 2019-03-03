@@ -13,11 +13,12 @@ using UnityEngine;
 
 public class Straw : MonoBehaviour
 {
-	public GameObject leftBound;
-	public GameObject rightBound;
+	public GameObject lowerBound;
 	public GameObject upperBound;
+    public GameObject player;
 
 	public float interval;
+    public float strawBound;
 
 	private float left_x;
 	private float right_x;
@@ -40,9 +41,9 @@ public class Straw : MonoBehaviour
         rigidBody.gravityScale = 0.0f;
 
         float width = GetComponent<Renderer>().bounds.size.x;
-    	left_x = leftBound.transform.position.x + width/2;
-    	right_x = rightBound.transform.position.x - width/2;
-        lower_y = leftBound.transform.position.y;
+    	left_x = player.transform.position.x - strawBound;
+        right_x = player.transform.position.x + strawBound;
+        lower_y = lowerBound.transform.position.y;
     	upper_y = upperBound.transform.position.y;
         
     	fallDirection = new Vector2(0, 0);
@@ -57,6 +58,9 @@ public class Straw : MonoBehaviour
     	//this.transform.position =  new Vector2(Random.Range(left_x, right_x), this.transform.position.y);
 
     	timeElapsed += Time.deltaTime;
+
+        right_x = player.transform.position.x + 1;
+        left_x = player.transform.position.x - 1;
 
         // straw is below the cup
         if (this.transform.position.y <= lower_y)

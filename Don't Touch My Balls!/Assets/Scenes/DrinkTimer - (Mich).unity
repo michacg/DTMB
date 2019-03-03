@@ -1438,10 +1438,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad6e9dd605168154bb49a06f48d5526a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftBound: {fileID: 1121034912}
-  rightBound: {fileID: 1779061583}
+  lowerBound: {fileID: 1121034912}
   upperBound: {fileID: 682491220}
+  player: {fileID: 2051968364}
   interval: 5
+  strawBound: 0
 --- !u!50 &1200005682
 Rigidbody2D:
   serializedVersion: 4
