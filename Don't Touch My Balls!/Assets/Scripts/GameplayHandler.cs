@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenuHandler : MonoBehaviour
+public class GameplayHandler : MonoBehaviour
 {
     public GameObject pausePanel;
+    public GameObject winnerPanel;
     private bool isPaused = false;
 
     // Update is called once per frame
@@ -13,6 +14,14 @@ public class PauseMenuHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
             Pause();
+        if (LevelManager.instance.isGameOver)
+        {
+            if (LevelManager.instance.hasWon)
+            {
+                winnerPanel.SetActive(true);
+                Time.timeScale = 0;
+            }
+        }
     }
 
     public void Pause()
@@ -41,5 +50,8 @@ public class PauseMenuHandler : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("MainScene");
+        LevelManager.instance.isGameOver = false;
+        LevelManager.instance.hasWon = false;
+        LevelManager.instance.teaFlavor = new Color();
     }
 }

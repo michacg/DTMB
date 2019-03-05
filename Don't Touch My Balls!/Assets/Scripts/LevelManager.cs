@@ -39,6 +39,12 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         SetTeaColor();
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            isGameOver = true;
+            hasWon = true;
+        }
     }
 
     void SetTeaColor()
