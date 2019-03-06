@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenuHandler : MonoBehaviour
+public class MenuButtonFunctions : MonoBehaviour
 {
     public GameObject creditsPanel;
 

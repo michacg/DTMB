@@ -59,8 +59,11 @@ public class Straw : MonoBehaviour
 
     	timeElapsed += Time.deltaTime;
 
-        right_x = player.transform.position.x + 1;
-        left_x = player.transform.position.x - 1;
+        if (player != null)
+        {
+            right_x = player.transform.position.x + 1;
+            left_x = player.transform.position.x - 1;
+        }        
 
         // straw is below the cup
         if (this.transform.position.y <= lower_y)

@@ -38,13 +38,7 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SetTeaColor();
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            isGameOver = true;
-            hasWon = true;
-        }
+        SetTeaColor();       
     }
 
     void SetTeaColor()
