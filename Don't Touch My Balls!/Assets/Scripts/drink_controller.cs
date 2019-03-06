@@ -62,11 +62,7 @@ public class drink_controller : MonoBehaviour
         if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.y < 0)
         {
             drinking =  true;
-        }
-        else
-        {
-            drinking = false;
-            drinking_speed = 0;
+            Debug.Log("IF");
         }
 
         // drinking_speed = (cup_size - Vector2.Distance(top, transform.position)) / time_remaining; // speed based on per unit
@@ -75,8 +71,11 @@ public class drink_controller : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        // drinking = false;
-        // drinking_speed = 0;
+        if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.y > 0)
+        {
+            drinking = false;
+            Debug.Log("ELSE");
+        }   
     }
 
     private float CalculateDrinkSpeed()
