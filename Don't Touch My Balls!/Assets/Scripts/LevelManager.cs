@@ -14,9 +14,8 @@ public class LevelManager : MonoBehaviour
     public GameObject drink;
     public SpriteRenderer drinkSprite;
 
-    private bool flavorSelected = false;
-
     public int bobaQuantity = 20;
+    public bool vacuuming = false;
 
     void Awake()
     {

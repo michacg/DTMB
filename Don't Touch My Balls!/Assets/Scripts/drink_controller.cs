@@ -45,6 +45,8 @@ public class drink_controller : MonoBehaviour
         LevelManager.instance.timeRemaining -= Time.deltaTime;
         //Debug.Log(LevelManager.instance.timeRemaining);
 
+        LevelManager.instance.vacuuming = drinking;
+
         if (drinking)
         {
             RemoveDrink();
