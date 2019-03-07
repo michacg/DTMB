@@ -13,9 +13,10 @@ public class LevelManager : MonoBehaviour
     public Color teaFlavor;
     public GameObject drink;
     public SpriteRenderer drinkSprite;
+    public float suction = 0.075f;
 
     public int bobaQuantity = 20;
-    public bool vacuuming = false;
+    public bool vacuuming = false;  
 
     void Awake()
     {

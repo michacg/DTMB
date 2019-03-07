@@ -139,7 +139,7 @@ public class Straw : MonoBehaviour
         if (collider.CompareTag("Boba"))
         {
             Destroy(collider.gameObject);
-            fallDirection = Vector2.up;
+            StartCoroutine(Freeze());
         }
 
         else if (collider.CompareTag("Player"))
@@ -147,5 +147,12 @@ public class Straw : MonoBehaviour
             LevelManager.instance.isGameOver = true;
             Destroy(collider.gameObject);
         }
+    }
+
+    IEnumerator Freeze()
+    {
+        fallDirection = new Vector2(0, 0);
+        yield return new WaitForSeconds(1.5f);
+        fallDirection = Vector2.up;
     }
 }
