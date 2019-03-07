@@ -8,13 +8,15 @@ public class ButtonFunctions : MonoBehaviour
     public GameObject pausePanel;
     public GameObject winnerPanel;
     public GameObject loserPanel;
+    public GameObject audioManager;
 
     private bool isPaused = false;
+    private bool gameEnded = false;   //bool for audio stuff to make sure song doesnt repeatedly start in the update
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioManager = GameObject.FindWithTag("AudioManager");
     }
 
     // Update is called once per frame
@@ -40,9 +42,13 @@ public class ButtonFunctions : MonoBehaviour
             }
             else
             {
-                FindObjectOfType<AudioManager>().StopImmediate("Opening");
+                if(gameEnded == false)
+                {
+                    FindObjectOfType<AudioManager>().GameOverMusic();
+                    gameEnded = true;
+                }
                 loserPanel.SetActive(true);
-                Time.timeScale = 0;
+                LevelManager.instance.FreezeGame();
             }
         }
     }
@@ -67,12 +73,15 @@ public class ButtonFunctions : MonoBehaviour
     {
         Time.timeScale = 1;
         LevelManager.instance.isGameOver = false;
+        gameEnded = false;
+        Destroy(audioManager);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void ReturnToMenu()
     {
         Time.timeScale = 1;
+        Destroy(audioManager);
         SceneManager.LoadScene("MainScene");
         LevelManager.instance.isGameOver = false;
         LevelManager.instance.hasWon = false;

@@ -12,6 +12,8 @@ public class LevelManager : MonoBehaviour
 
     public Color teaFlavor;
     public GameObject drink;
+    public GameObject straw;
+
     public SpriteRenderer drinkSprite;
     public float suction = 0.075f;
 
@@ -34,7 +36,9 @@ public class LevelManager : MonoBehaviour
         isGameOver    = false;
         hasWon        = false;
     }
-
+    void Start()
+    {
+    }
     // Update is called once per frame
     void Update()
     {
@@ -52,4 +56,12 @@ public class LevelManager : MonoBehaviour
                 drinkSprite.color = teaFlavor;
         }
     }
+
+    public void FreezeGame()
+    {
+        straw = GameObject.FindWithTag("Straw");
+        drink.GetComponent<drink_controller>().enabled = false;
+        straw.GetComponent<Straw>().GameOverFreeze();
+    }
+    
 }

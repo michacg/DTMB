@@ -155,4 +155,9 @@ public class Straw : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         fallDirection = Vector2.up;
     }
+
+    public void GameOverFreeze()
+    {
+        fallDirection = new Vector2(0,0);
+    }
 }

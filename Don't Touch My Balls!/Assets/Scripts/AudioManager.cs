@@ -8,8 +8,8 @@ using System.Linq;
 
 public class AudioManager : MonoBehaviour
 {
-    //[HideInInspector]
-    //public Sound s;
+    [HideInInspector]
+    public Sound currentSound = null;
     public float fadeInTime;  //affects how long it takes to fade audio
     public float fadeOutTime;
     public Sound[] sounds;
@@ -18,6 +18,8 @@ public class AudioManager : MonoBehaviour
     private IEnumerator fadeOut;
     [HideInInspector]
     public bool CR_running = false;
+    private bool switched = false;
+    private Sound open;
 
     void Awake()
     {
@@ -42,11 +44,25 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        PlayImmediate("Opening");
+        Play("Opening");
+        open = Array.Find(sounds, sound => sound.name == "Opening");
+    }
+    void Update()
+    {
+        if(switched == false)
+        {
+            if(open.source.isPlaying == false && LevelManager.instance.isGameOver == false)
+            {
+                PlayImmediate("LoopTrack");
+                switched = true;
+            }
+        }
+
     }
     public void Play (string name)  //s.source.volume will adjust actual volume. s.volume will adjust initial value which has no meaning here
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
+        currentSound = s;
         fadeIn = FadeIn(s);     //we assign coroutines only when we start the song. These same references are used when we stop the song
         fadeOut = FadeOut(s);
         if(s == null)
@@ -54,9 +70,8 @@ public class AudioManager : MonoBehaviour
             Debug.Log("ERROR: Sound not found");
             return;
         }
-        StopCoroutine(fadeOut);    //ensures that fading out does not occur simultaneously to fading in
-        StartCoroutine(fadeIn);
-
+            StopCoroutine(fadeOut);    //ensures that fading out does not occur simultaneously to fading in
+            StartCoroutine(fadeIn);
     }
 
     public void Stop(string name)
@@ -67,8 +82,8 @@ public class AudioManager : MonoBehaviour
             Debug.Log("ERROR: Sound not found to stop");
             return;
         }
-        StopCoroutine(fadeIn);  
-        StartCoroutine(fadeOut);
+            StopCoroutine(fadeIn);    //ensures that fading out does not occur simultaneously to fading in
+            StartCoroutine(fadeOut);
     }
     public IEnumerator FadeOut(Sound s)
     {
@@ -97,7 +112,9 @@ public class AudioManager : MonoBehaviour
 
     public void PlayImmediate (string name)  //s.source.volume will adjust actual volume. s.volume will adjust initial value which has no meaning here
     {
+
         Sound s = Array.Find(sounds, sound => sound.name == name);
+        currentSound = s;
         if(s == null)
         {
             Debug.Log("ERROR: Sound not found");
@@ -114,7 +131,15 @@ public class AudioManager : MonoBehaviour
             Debug.Log("ERROR: Sound not found to stop");
             return;
         }
+        StopCoroutine(fadeIn);
         s.source.Stop();
+    }
+
+    public void GameOverMusic()
+    {
+        StopImmediate(currentSound.name);
+        Play("Pop");
+        Play("GameOverLoop");     
     }
 
 }
