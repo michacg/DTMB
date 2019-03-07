@@ -71,7 +71,7 @@ MonoBehaviour:
   - name: GameOverLoop
     loop: 0
     isPlaying: 0
-    clip: {fileID: 8300000, guid: b043f2884a9373b4c84036e94cfc4e23, type: 3}
+    clip: {fileID: 8300000, guid: 64c9c092e4108ad458ec5a8edf31f375, type: 3}
     volume: 0
     pitch: 1
     source: {fileID: 0}
