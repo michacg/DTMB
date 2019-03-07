@@ -6298,16 +6298,36 @@ PrefabInstance:
         type: 3}
       propertyPath: sounds.Array.data[2].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 63e57a88f0718b244a573777157e9885, type: 3}
+      objectReference: {fileID: 8300000, guid: b043f2884a9373b4c84036e94cfc4e23, type: 3}
     - target: {fileID: 7284647397253105539, guid: 2a78246eb09da5744ad4e94c5fae2176,
         type: 3}
       propertyPath: sounds.Array.data[2].volume
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7284647397253105539, guid: 2a78246eb09da5744ad4e94c5fae2176,
         type: 3}
       propertyPath: sounds.Array.data[2].pitch
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7284647397253105539, guid: 2a78246eb09da5744ad4e94c5fae2176,
+        type: 3}
+      propertyPath: sounds.Array.data[0].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7284647397253105539, guid: 2a78246eb09da5744ad4e94c5fae2176,
+        type: 3}
+      propertyPath: sounds.Array.data[1].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7284647397253105539, guid: 2a78246eb09da5744ad4e94c5fae2176,
+        type: 3}
+      propertyPath: fadeInTime
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7284647397253105539, guid: 2a78246eb09da5744ad4e94c5fae2176,
+        type: 3}
+      propertyPath: fadeOutTime
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a78246eb09da5744ad4e94c5fae2176, type: 3}

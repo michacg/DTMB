@@ -4264,7 +4264,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftBound: {fileID: 1121034912}
   rightBound: {fileID: 1779061583}
-  bobaObj: {fileID: 3522360432136908922, guid: 639a4b1f0dbe6f84d8d0b9a6c96ad6eb, type: 3}
+  bobaSprites:
+  - {fileID: 21300000, guid: fb0ca815567f42048851993a552d4476, type: 3}
+  - {fileID: 21300000, guid: d0e95e35d2926104aa318ae6379271af, type: 3}
+  - {fileID: 21300000, guid: 834ced33b0b152f4b93c34b8f427344b, type: 3}
+  - {fileID: 21300000, guid: 1a7b442d64419e24ba6cfca186f64d51, type: 3}
+  bobaObj: {fileID: 4568317532100508807, guid: 8dd8e8078f439384db947c9678f80274, type: 3}
 --- !u!1 &2051968364
 GameObject:
   m_ObjectHideFlags: 0
