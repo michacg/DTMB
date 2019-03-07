@@ -40,6 +40,7 @@ public class ButtonFunctions : MonoBehaviour
             }
             else
             {
+                FindObjectOfType<AudioManager>().StopImmediate("Opening");
                 loserPanel.SetActive(true);
                 Time.timeScale = 0;
             }
