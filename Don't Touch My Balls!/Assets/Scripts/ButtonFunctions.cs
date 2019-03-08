@@ -37,6 +37,7 @@ public class ButtonFunctions : MonoBehaviour
         {
             if (LevelManager.instance.hasWon)
             {
+                pausePanel.SetActive(false);
                 winnerPanel.SetActive(true);
                 Time.timeScale = 0;
             }
@@ -47,6 +48,7 @@ public class ButtonFunctions : MonoBehaviour
                     FindObjectOfType<AudioManager>().GameOverMusic();
                     gameEnded = true;
                 }
+                pausePanel.SetActive(false);
                 loserPanel.SetActive(true);
                 LevelManager.instance.FreezeGame();
             }
