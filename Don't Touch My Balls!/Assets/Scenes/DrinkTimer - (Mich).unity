@@ -5474,8 +5474,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c2c5fb97d4383a42b6e6da8e95be242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontal_speed: 6
-  vertical_speed: 6
+  horizontal_speed: 3
+  vertical_speed: 3
 --- !u!1 &2053111436
 GameObject:
   m_ObjectHideFlags: 0
@@ -5827,6 +5827,11 @@ PrefabInstance:
       propertyPath: RegularCupCustom
       value: 
       objectReference: {fileID: 2018843211}
+    - target: {fileID: 5105926319306774714, guid: 5c62c9553a5145848a554ded8ee38e5a,
+        type: 3}
+      propertyPath: bobaQuantity
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c62c9553a5145848a554ded8ee38e5a, type: 3}
 --- !u!1001 &6846628158002088139
