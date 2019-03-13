@@ -37,9 +37,14 @@ public class ButtonFunctions : MonoBehaviour
         {
             if (LevelManager.instance.hasWon)
             {
+                if(gameEnded == false)
+                {
+                    FindObjectOfType<AudioManager>().Victory();
+                    gameEnded = true;
+                }
                 pausePanel.SetActive(false);
                 winnerPanel.SetActive(true);
-                Time.timeScale = 0;
+                LevelManager.instance.FreezeGame();
             }
             else
             {

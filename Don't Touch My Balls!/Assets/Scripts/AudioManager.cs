@@ -149,5 +149,9 @@ public class AudioManager : MonoBehaviour
         Play("Pop");
         Play("GameOverLoop");     
     }
-
+    public void Victory()
+    {
+        StopImmediate(currentSound.name);
+        Play("Victory");
+    }
 }
