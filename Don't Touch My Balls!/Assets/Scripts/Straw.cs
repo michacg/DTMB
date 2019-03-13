@@ -55,20 +55,15 @@ public class Straw : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    	//this.transform.position =  new Vector2(Random.Range(left_x, right_x), this.transform.position.y);
-
     	timeElapsed += Time.deltaTime;
 
         if (LevelManager.instance.isGameOver)
         {
             fallDirection = new Vector2(0,0);
-            Debug.Log("should be over");
         }
 
         else
         {
-            Debug.Log("calling this");
-            Debug.Log(LevelManager.instance.isGameOver);
             if (player != null)
             {
                 right_x = player.transform.position.x + 1;
@@ -116,17 +111,11 @@ public class Straw : MonoBehaviour
 
     void MoveDown()
     {
-        // this.transform.Translate(fallDirection * speed * Time.deltaTime);
+
         if (LevelManager.instance.isSmallMode)
-            GetComponent<Rigidbody2D>().velocity = fallDirection * speed * Random.Range(1.5f,2.5f);
+            GetComponent<Rigidbody2D>().velocity = fallDirection * speed * Random.Range(1.25f,1.75f);
         else
             GetComponent<Rigidbody2D>().velocity = fallDirection * speed;
-
-        // Debug.Log(GetComponent<Rigidbody2D>().velocity);
-        // GetComponent<Rigidbody2D>().AddForce(direction * speed * Time.deltaTime, ForceMode2D.Impulse);
-        // GetComponent<Rigidbody2D>().velocity = direction * speed * Time.deltaTime;
-        // Debug.Log("second line " + GetComponent<Rigidbody2D>().velocity);
-
     }
 
     void MoveSide()

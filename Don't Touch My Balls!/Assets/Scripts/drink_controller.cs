@@ -2,22 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-/* TODO:
- * 1. Make the timer of the drink independent of the straw's
- *    interval. (Partial, see BUGS).
-*/
-
-/* KNOWN BUGS:
- * 1. When the straw is out of the drink, but the overall game
- *    timer reaches 0, the drink might not have reached the 
- *    red line yet.
- */
-
 public class drink_controller : MonoBehaviour
 {
     private float drinking_speed = 1;
-    // private float unaccounted_time = 0;
     
     private float cup_size = 10;
     private Vector2 top;
@@ -27,11 +14,6 @@ public class drink_controller : MonoBehaviour
     void Start()
     {
         LevelManager.instance.timeRemaining = LevelManager.instance.startTime; 
-
-        // Get the height of the drink
-        // NOTE: this is assuming that the drink is correctly scaled to 
-        // touching the bottom of the cup.
-        // float cup_size = gameObject.transform.lossyScale.y;
 
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         cup_size = sr.bounds.size.y;
@@ -43,7 +25,6 @@ public class drink_controller : MonoBehaviour
     void Update()
     {
         LevelManager.instance.timeRemaining -= Time.deltaTime;
-        Debug.Log(LevelManager.instance.timeRemaining);
 
         LevelManager.instance.vacuuming = drinking;
 
@@ -71,9 +52,6 @@ public class drink_controller : MonoBehaviour
             drinking =  true;
 
         }
-
-        // drinking_speed = (cup_size - Vector2.Distance(top, transform.position)) / time_remaining; // speed based on per unit
-        // drinking_speed = drinking_speed / 10; // speed based on per pixel
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -86,17 +64,11 @@ public class drink_controller : MonoBehaviour
 
     private float CalculateDrinkSpeed()
     {
-        // Debug.Log(cup_size + ", " + LevelManager.instance.startTime);
-
         return (cup_size / LevelManager.instance.startTime) * Time.deltaTime * 2.5f; //hardcoded
     }
 
     private void RemoveDrink()
-    {
-        //gameObject.transform.Translate(Vector2.down * CalculateDrinkSpeed());
-        
-        //drinking_speed = (cup_size - Vector2.Distance(top, FindTopVector())) / LevelManager.instance.timeRemaining;
-        
+    {        
         gameObject.transform.Translate(Vector2.down * CalculateDrinkSpeed());
     }
 
