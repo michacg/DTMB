@@ -52,6 +52,11 @@ public class drink_controller : MonoBehaviour
             RemoveDrink();
         }
 
+        else
+        {
+            StopDrink();
+        }
+
         if (LevelManager.instance.timeRemaining <= 0)
         {
             LevelManager.instance.isGameOver = true;
@@ -64,6 +69,7 @@ public class drink_controller : MonoBehaviour
         if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.y < 0)
         {
             drinking =  true;
+
         }
 
         // drinking_speed = (cup_size - Vector2.Distance(top, transform.position)) / time_remaining; // speed based on per unit
@@ -72,7 +78,7 @@ public class drink_controller : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.y > 0)
+        if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.y >= 0)
         {
             drinking = false;
         }   
@@ -92,6 +98,11 @@ public class drink_controller : MonoBehaviour
         //drinking_speed = (cup_size - Vector2.Distance(top, FindTopVector())) / LevelManager.instance.timeRemaining;
         
         gameObject.transform.Translate(Vector2.down * CalculateDrinkSpeed());
+    }
+
+    private void StopDrink()
+    {
+        gameObject.transform.Translate(Vector2.down * 0);
     }
 
     private Vector2 FindTopVector()
