@@ -59,6 +59,14 @@ public class AudioManager : MonoBehaviour
         }
 
     }
+
+    public void SetVolume(float newVolume)
+    {
+        float newVol = AudioListener.volume;
+        newVol = newVolume;
+        AudioListener.volume = newVol;
+    }
+
     public void Play (string name)  //s.source.volume will adjust actual volume. s.volume will adjust initial value which has no meaning here
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);

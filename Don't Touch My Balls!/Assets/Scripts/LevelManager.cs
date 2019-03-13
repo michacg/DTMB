@@ -9,10 +9,13 @@ public class LevelManager : MonoBehaviour
     public bool hasWon;
     public float startTime = 90f;
 	public float timeRemaining;
+    public bool isSmallMode = false;
 
     public Color teaFlavor;
     public GameObject drink;
     public GameObject straw;
+    public GameObject RegularCup;
+    public GameObject SmallCup;
 
     public SpriteRenderer drinkSprite;
     public float suction = 0.075f;
@@ -28,7 +31,9 @@ public class LevelManager : MonoBehaviour
             instance = this;
         }
         else
+        {
             Destroy(this.gameObject);
+        }
 
         DontDestroyOnLoad(instance);
 
@@ -42,7 +47,7 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SetTeaColor();       
+        SetTeaColor();
     }
 
     void SetTeaColor()
@@ -56,6 +61,7 @@ public class LevelManager : MonoBehaviour
                 drinkSprite.color = teaFlavor;
         }
     }
+
 
     public void FreezeGame()
     {

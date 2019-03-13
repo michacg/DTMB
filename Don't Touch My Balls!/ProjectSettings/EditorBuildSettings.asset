@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DrinkTimer - (Mich).unity
     guid: a1b7d500aa180f3428db294b93a94780
+  - enabled: 0
+    path: Assets/Scenes/DrinkTimer - (Mich) - Small.unity
+    guid: 682d87d3164411649a1a34a71a1ff00c
+  - enabled: 1
+    path: Assets/Scenes/DrinkTimer - (Mich) 1.unity
+    guid: 31a16a068ed87a44886dbda43de09dd6
   m_configObjects: {}

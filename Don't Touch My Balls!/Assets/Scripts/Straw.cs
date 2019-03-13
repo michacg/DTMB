@@ -106,8 +106,10 @@ public class Straw : MonoBehaviour
     void MoveDown()
     {
         // this.transform.Translate(fallDirection * speed * Time.deltaTime);
-        
-        GetComponent<Rigidbody2D>().velocity = fallDirection * speed;
+        if (LevelManager.instance.isSmallMode)
+            GetComponent<Rigidbody2D>().velocity = fallDirection * speed * Random.Range(1.5f,2.5f);
+        else
+            GetComponent<Rigidbody2D>().velocity = fallDirection * speed;
 
         // Debug.Log(GetComponent<Rigidbody2D>().velocity);
         // GetComponent<Rigidbody2D>().AddForce(direction * speed * Time.deltaTime, ForceMode2D.Impulse);
@@ -119,7 +121,10 @@ public class Straw : MonoBehaviour
     void MoveSide()
     {
         rand_time = Random.Range(0.05f,2);
-        speed     = (right_x - left_x) / rand_time;
+        if (LevelManager.instance.isSmallMode)
+            speed = ((right_x - left_x) / rand_time) * Random.Range(1.5f, 2.5f);
+        else
+            speed = (right_x - left_x) / rand_time;
 
         if (this.transform.position.x >= right_x)
         {

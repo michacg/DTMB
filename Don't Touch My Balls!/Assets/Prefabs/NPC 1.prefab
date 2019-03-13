@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 3522360432136908922, guid: 639a4b1f0dbe6f84d8d0b9a6c96ad6eb,
         type: 3}
       propertyPath: m_Name
-      value: Boba
+      value: NPC 1
       objectReference: {fileID: 0}
     - target: {fileID: 3522360432136908924, guid: 639a4b1f0dbe6f84d8d0b9a6c96ad6eb,
         type: 3}
@@ -71,7 +71,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: fb0ca815567f42048851993a552d4476,
+      objectReference: {fileID: 21300000, guid: 1a7b442d64419e24ba6cfca186f64d51,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 639a4b1f0dbe6f84d8d0b9a6c96ad6eb, type: 3}
