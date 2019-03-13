@@ -59,48 +59,59 @@ public class Straw : MonoBehaviour
 
     	timeElapsed += Time.deltaTime;
 
-        if (player != null)
+        if (LevelManager.instance.isGameOver)
         {
-            right_x = player.transform.position.x + 1;
-            left_x = player.transform.position.x - 1;
-        }        
-
-        // straw is below the cup
-        if (this.transform.position.y <= lower_y)
-    	{
-            if (fallDirection != Vector2.up)
-            {
-                fallDirection = Vector2.up;
-                rand_time = Random.Range(1, interval - timeElapsed);
-                speed = (upper_y - lower_y) / rand_time;
-            }
-
+            fallDirection = new Vector2(0,0);
+            Debug.Log("should be over");
         }
-        
-        // straw is completely out of the cup
-    	else if (this.transform.position.y >= upper_y)
-    	{
-    		if (timeElapsed >= interval)
-    		{
-                MoveSide();
 
-                if (fallDirection != Vector2.down)
-                {   
-                    fallDirection = Vector2.down;
-    			    timeElapsed = 0;
-                    rand_time = Random.Range(0.5f, 1.0f);
+        else
+        {
+            Debug.Log("calling this");
+            Debug.Log(LevelManager.instance.isGameOver);
+            if (player != null)
+            {
+                right_x = player.transform.position.x + 1;
+                left_x = player.transform.position.x - 1;
+            }        
+
+            // straw is below the cup
+            if (this.transform.position.y <= lower_y)
+        	{
+                if (fallDirection != Vector2.up)
+                {
+                    fallDirection = Vector2.up;
+                    rand_time = Random.Range(1, interval - timeElapsed);
                     speed = (upper_y - lower_y) / rand_time;
                 }
+
             }
+            
+            // straw is completely out of the cup
+        	else if (this.transform.position.y >= upper_y)
+        	{
+        		if (timeElapsed >= interval)
+        		{
+                    MoveSide();
 
-    		else
-    		{
-                MoveSide();
-    			fallDirection = new Vector2(0, 0);
-    		}
-    	}
+                    if (fallDirection != Vector2.down)
+                    {   
+                        fallDirection = Vector2.down;
+        			    timeElapsed = 0;
+                        rand_time = Random.Range(0.5f, 1.0f);
+                        speed = (upper_y - lower_y) / rand_time;
+                    }
+                }
 
-    	MoveDown();
+        		else
+        		{
+                    MoveSide();
+        			fallDirection = new Vector2(0, 0);
+        		}
+        	}
+        }
+
+        MoveDown();
     }
 
     void MoveDown()

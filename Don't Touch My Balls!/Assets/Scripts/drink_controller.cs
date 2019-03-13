@@ -43,7 +43,7 @@ public class drink_controller : MonoBehaviour
     void Update()
     {
         LevelManager.instance.timeRemaining -= Time.deltaTime;
-        //Debug.Log(LevelManager.instance.timeRemaining);
+        Debug.Log(LevelManager.instance.timeRemaining);
 
         LevelManager.instance.vacuuming = drinking;
 
@@ -88,7 +88,7 @@ public class drink_controller : MonoBehaviour
     {
         // Debug.Log(cup_size + ", " + LevelManager.instance.startTime);
 
-        return (cup_size / LevelManager.instance.startTime) * Time.deltaTime * 5; //hardcoded
+        return (cup_size / LevelManager.instance.startTime) * Time.deltaTime * 2.5f; //hardcoded
     }
 
     private void RemoveDrink()

@@ -48,6 +48,7 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         SetTeaColor();
+        Debug.Log(timeRemaining);
     }
 
     void SetTeaColor()
