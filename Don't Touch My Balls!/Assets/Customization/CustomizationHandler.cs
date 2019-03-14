@@ -12,22 +12,28 @@ public class CustomizationHandler : MonoBehaviour
     public Transform smallButton;
     public Transform regButton;
 
-    public TextMeshProUGUI buttonText;
+    public TextMeshProUGUI flavorText;
+    public TextMeshProUGUI sizeText;
 
-    public GameObject spriteObject;
-    private RectTransform sprite;
+    public GameObject SpriteL;
+    public GameObject SpriteR;
+    private RectTransform LeftSprite;
+    private RectTransform RightSprite;
     public GameObject RegularCup;
     public GameObject SmallCup;
 
     private bool flavorSelected = false;
     private int yLeft = 0;
+    private int yRight = 0;
 
     void Awake()
     {
         playButton.GetComponent<Button>().interactable = false;
         regButton.GetComponent<Button>().interactable = false;
         smallButton.GetComponent<Button>().interactable = true;
-        sprite = spriteObject.GetComponent<RectTransform>();
+        LeftSprite = SpriteL.GetComponent<RectTransform>();
+        RightSprite = SpriteR.GetComponent<RectTransform>();
+        sizeText.color = Color.white;
     }
 
     void Update()
@@ -54,17 +60,18 @@ public class CustomizationHandler : MonoBehaviour
         }
 
         if (yLeft != 0)
-        {
-            MoveSprite();
-        }
+            MoveLeftSprite();
+
+        if (yRight != 0)
+            MoveRightSprite();
     }
 
     public void LoadTea(string color)
     {
         color = color.ToLower();
 
-        if (buttonText != null)
-            buttonText.color = Color.black;
+        if (flavorText != null)
+            flavorText.color = Color.black;
 
         if (color.Equals("milk"))
         {
@@ -91,10 +98,10 @@ public class CustomizationHandler : MonoBehaviour
         if (LevelManager.instance.isSmallMode)
             LevelManager.instance.drink.transform.position = new Vector2(0.17f, -5.5f);
         else
-            LevelManager.instance.drink.transform.position = new Vector2(0, -4.75f);
+            LevelManager.instance.drink.transform.position = new Vector2(0, -6.5f);
 
-        buttonText = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<TextMeshProUGUI>();
-        buttonText.color = Color.white;
+        flavorText = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<TextMeshProUGUI>();
+        flavorText.color = Color.white;
     }
 
     public void LoadScene(string scene)
@@ -118,38 +125,43 @@ public class CustomizationHandler : MonoBehaviour
     {
         if (LevelManager.instance.isSmallMode)
         {
-            if (LevelManager.instance.drink.transform.position.y <= -1f)
-                LevelManager.instance.drink.transform.Translate(Vector2.up * Time.deltaTime * 3f);
+            if (LevelManager.instance.drink.transform.position.y <= -1.25f)
+                LevelManager.instance.drink.transform.Translate(Vector2.up * Time.deltaTime * 4f);
         }
         else
         {
-            if (LevelManager.instance.drink.transform.position.y <= -0.75f)
+            if (LevelManager.instance.drink.transform.position.y <= -0.95f)
                 LevelManager.instance.drink.transform.Translate(Vector2.up * Time.deltaTime * 4f);
         }
     }
 
-    public void MoveSprite()
+    public void MoveLeftSprite()
     {
-        Vector2 position = sprite.anchoredPosition;
+        Vector2 position = LeftSprite.anchoredPosition;
 
         if (position.y > yLeft)
-            sprite.anchoredPosition = sprite.anchoredPosition + new Vector2(0, -10);
+            LeftSprite.anchoredPosition = LeftSprite.anchoredPosition + new Vector2(0, -10);
         else if (position.y < yLeft)
-            sprite.anchoredPosition = sprite.anchoredPosition + new Vector2(0, 10);
+            LeftSprite.anchoredPosition = LeftSprite.anchoredPosition + new Vector2(0, 10);
 
-        if (!spriteObject.activeSelf && position.y != 0)
-        {
-            sprite.anchoredPosition = new Vector2(-167.5f, yLeft);
-            spriteObject.SetActive(true);
-        }
+    }
+
+    public void MoveRightSprite()
+    {
+        Vector2 position = RightSprite.anchoredPosition;
+
+        if (position.y > yRight)
+            RightSprite.anchoredPosition = RightSprite.anchoredPosition + new Vector2(0, -10);
+        else if (position.y < yRight)
+            RightSprite.anchoredPosition = RightSprite.anchoredPosition + new Vector2(0, 10);
     }
 
     public void ChangeMode(string mode)
     {
         mode = mode.ToLower();
 
-        if (buttonText != null)
-            buttonText.color = Color.black;
+        if (sizeText != null)
+            sizeText.color = Color.black;
 
 
         if (mode.Equals("regular"))
@@ -159,12 +171,16 @@ public class CustomizationHandler : MonoBehaviour
 
             LevelManager.instance.isSmallMode = false;
 
-            LevelManager.instance.drink.transform.position = new Vector2(0, -6f);
+            LevelManager.instance.startTime = 90f;
+            LevelManager.instance.timeRemaining = 90f;
+
+            LevelManager.instance.drink.transform.position = new Vector2(0, -6.5f);
             LevelManager.instance.drink.transform.localScale = new Vector3(1.0f, 0.77f, 1.0f);
 
             LevelManager.instance.bobaQuantity = 20;
 
             LevelManager.instance.isSmallMode = false;
+            yRight = -85;
         }
         else if (mode.Equals("small"))
         {
@@ -173,15 +189,19 @@ public class CustomizationHandler : MonoBehaviour
 
             LevelManager.instance.isSmallMode = true;
 
+            LevelManager.instance.startTime = 60f;
+            LevelManager.instance.timeRemaining = 60f;
+
             LevelManager.instance.drink.transform.position = new Vector2(0.17f, -5.5f);
             LevelManager.instance.drink.transform.localScale = new Vector3(0.775f, 0.51f, 1.0f);
 
             LevelManager.instance.bobaQuantity = 15;
 
             LevelManager.instance.isSmallMode = true;
+            yRight = -25;
         }
 
-        buttonText = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<TextMeshProUGUI>();
-        buttonText.color = Color.white;
+        sizeText = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<TextMeshProUGUI>();
+        sizeText.color = Color.white;
     }
 }

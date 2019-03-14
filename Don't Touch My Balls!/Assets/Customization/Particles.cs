@@ -14,7 +14,6 @@ public class Particles : MonoBehaviour
     void Start()
     {
         collisions = new List<ParticleCollisionEvent>();
-
     }
 
     void OnParticleCollision(GameObject other)

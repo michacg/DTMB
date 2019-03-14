@@ -7,7 +7,7 @@ public class LevelManager : MonoBehaviour
 	public static LevelManager instance;
     public bool isGameOver;
     public bool hasWon;
-    public float startTime = 90f;
+    public float startTime;
 	public float timeRemaining;
     public bool isSmallMode = false;
 
@@ -39,14 +39,11 @@ public class LevelManager : MonoBehaviour
         isGameOver    = false;
         hasWon        = false;
     }
-    void Start()
-    {
-    }
+
     // Update is called once per frame
     void Update()
     {
         SetTeaColor();
-        //Debug.Log(timeRemaining);
     }
 
     void SetTeaColor()

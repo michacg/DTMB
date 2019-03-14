@@ -55,6 +55,8 @@ public class Straw : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(interval - timeElapsed);
+
     	timeElapsed += Time.deltaTime;
 
         if (LevelManager.instance.isGameOver)
@@ -120,7 +122,7 @@ public class Straw : MonoBehaviour
 
     void MoveSide()
     {
-        rand_time = Random.Range(0.05f,2);
+        rand_time = Random.Range(0.05f,1);
         speed = (right_x - left_x) / rand_time;
 
         if (this.transform.position.x >= right_x)

@@ -22,14 +22,6 @@ public class ButtonFunctions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            LevelManager.instance.isGameOver = true;
-            LevelManager.instance.hasWon = true;
-        }
-        if (Input.GetKeyDown(KeyCode.O))
-            LevelManager.instance.isGameOver = true;
-
         if (Input.GetKeyDown(KeyCode.Escape))
             Pause();
 
@@ -93,5 +85,6 @@ public class ButtonFunctions : MonoBehaviour
         LevelManager.instance.isGameOver = false;
         LevelManager.instance.hasWon = false;
         LevelManager.instance.teaFlavor = new Color();
+        LevelManager.instance.isSmallMode = false;
     }
 }
