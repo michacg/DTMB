@@ -16,15 +16,17 @@ public class CustomizationHandler : MonoBehaviour
 
     public GameObject spriteObject;
     private RectTransform sprite;
+    public GameObject RegularCup;
+    public GameObject SmallCup;
 
     private bool flavorSelected = false;
     private int yLeft = 0;
-    private bool smallSelected = false;
 
     void Awake()
     {
         playButton.GetComponent<Button>().interactable = false;
         regButton.GetComponent<Button>().interactable = false;
+        smallButton.GetComponent<Button>().interactable = true;
         sprite = spriteObject.GetComponent<RectTransform>();
     }
 
@@ -36,9 +38,11 @@ public class CustomizationHandler : MonoBehaviour
             playButton.GetComponent<Button>().interactable = true;
         }
         else
+        {
             playButton.GetComponent<Button>().interactable = false;
+        }
 
-        if (smallSelected)
+        if (LevelManager.instance.isSmallMode)
         {
             regButton.GetComponent<Button>().interactable = true;
             smallButton.GetComponent<Button>().interactable = false;
@@ -84,7 +88,7 @@ public class CustomizationHandler : MonoBehaviour
         }
 
         flavorSelected = true;
-        if (smallSelected)
+        if (LevelManager.instance.isSmallMode)
             LevelManager.instance.drink.transform.position = new Vector2(0.17f, -5.5f);
         else
             LevelManager.instance.drink.transform.position = new Vector2(0, -4.75f);
@@ -93,9 +97,14 @@ public class CustomizationHandler : MonoBehaviour
         buttonText.color = Color.white;
     }
 
-    public void LoadScene()
+    public void LoadScene(string scene)
     {
-        if (smallSelected)
+        SceneManager.LoadScene(scene);
+    }
+
+    public void LoadPlayScene()
+    {
+        if (LevelManager.instance.isSmallMode)
         {
             SceneManager.LoadScene("DrinkTimer - (Mich) 1");
         }
@@ -107,7 +116,7 @@ public class CustomizationHandler : MonoBehaviour
 
     public void FillCup()
     {
-        if (smallSelected)
+        if (LevelManager.instance.isSmallMode)
         {
             if (LevelManager.instance.drink.transform.position.y <= -1f)
                 LevelManager.instance.drink.transform.Translate(Vector2.up * Time.deltaTime * 3f);
@@ -145,23 +154,22 @@ public class CustomizationHandler : MonoBehaviour
 
         if (mode.Equals("regular"))
         {
-            LevelManager.instance.SmallCup.SetActive(false);
-            LevelManager.instance.RegularCup.SetActive(true);
-
+            SmallCup.SetActive(false);
+            RegularCup.SetActive(true);
 
             LevelManager.instance.isSmallMode = false;
 
-            LevelManager.instance.drink.transform.position = new Vector2(0, -4.75f);
+            LevelManager.instance.drink.transform.position = new Vector2(0, -6f);
             LevelManager.instance.drink.transform.localScale = new Vector3(1.0f, 0.77f, 1.0f);
 
             LevelManager.instance.bobaQuantity = 20;
 
-            smallSelected = false;
+            LevelManager.instance.isSmallMode = false;
         }
         else if (mode.Equals("small"))
         {
-            LevelManager.instance.RegularCup.SetActive(false);
-            LevelManager.instance.SmallCup.SetActive(true);
+            RegularCup.SetActive(false);
+            SmallCup.SetActive(true);
 
             LevelManager.instance.isSmallMode = true;
 
@@ -170,7 +178,7 @@ public class CustomizationHandler : MonoBehaviour
 
             LevelManager.instance.bobaQuantity = 15;
 
-            smallSelected = true;
+            LevelManager.instance.isSmallMode = true;
         }
 
         buttonText = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<TextMeshProUGUI>();

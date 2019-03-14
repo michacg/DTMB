@@ -407,7 +407,7 @@ Camera:
   m_GameObject: {fileID: 125370311}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
@@ -6242,6 +6242,8 @@ MonoBehaviour:
   regButton: {fileID: 452352322}
   buttonText: {fileID: 0}
   spriteObject: {fileID: 1939814810}
+  RegularCup: {fileID: 989250826}
+  SmallCup: {fileID: 913622800}
 --- !u!4 &857895972 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 164270354081045022, guid: 5b2e5f6a310f81d48bce6e8ab43f2a0d,
@@ -8145,7 +8147,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 795900634}
-        m_MethodName: LoadScene
+        m_MethodName: LoadPlayScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

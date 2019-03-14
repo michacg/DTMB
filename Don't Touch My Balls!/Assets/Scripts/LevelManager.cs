@@ -14,8 +14,6 @@ public class LevelManager : MonoBehaviour
     public Color teaFlavor;
     public GameObject drink;
     public GameObject straw;
-    public GameObject RegularCup;
-    public GameObject SmallCup;
 
     public SpriteRenderer drinkSprite;
     public float suction = 0.075f;
@@ -48,7 +46,7 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         SetTeaColor();
-        Debug.Log(timeRemaining);
+        //Debug.Log(timeRemaining);
     }
 
     void SetTeaColor()

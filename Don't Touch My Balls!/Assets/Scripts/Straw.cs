@@ -121,10 +121,7 @@ public class Straw : MonoBehaviour
     void MoveSide()
     {
         rand_time = Random.Range(0.05f,2);
-        if (LevelManager.instance.isSmallMode)
-            speed = ((right_x - left_x) / rand_time) * Random.Range(1.5f, 2.5f);
-        else
-            speed = (right_x - left_x) / rand_time;
+        speed = (right_x - left_x) / rand_time;
 
         if (this.transform.position.x >= right_x)
         {
