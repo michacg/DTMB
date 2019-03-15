@@ -85,8 +85,8 @@ MonoBehaviour:
   - name: Victory
     loop: 0
     isPlaying: 0
-    clip: {fileID: 8300000, guid: dde261d3e3ef62f488b4bbbb5cb88478, type: 3}
-    volume: 0
+    clip: {fileID: 8300000, guid: c1e0dccdfe9a804489355cfad384cd2c, type: 3}
+    volume: 0.2
     pitch: 1
     source: {fileID: 0}
   CR_running: 0
