@@ -5,7 +5,8 @@ using UnityEngine;
 public class drink_controller : MonoBehaviour
 {
     private float drinking_speed = 1;
-    
+    public GameObject instrPanel;
+
     private float cup_size = 10;
     private Vector2 top;
 
@@ -24,7 +25,8 @@ public class drink_controller : MonoBehaviour
 
     void Update()
     {
-        LevelManager.instance.timeRemaining -= Time.deltaTime;
+        if (instrPanel.activeSelf == false)
+            LevelManager.instance.timeRemaining -= Time.deltaTime;
 
         LevelManager.instance.vacuuming = drinking;
 
@@ -32,7 +34,6 @@ public class drink_controller : MonoBehaviour
         {
             RemoveDrink();
         }
-
         else
         {
             StopDrink();

@@ -58,7 +58,6 @@ public class ButtonFunctions : MonoBehaviour
     {
         instructionPanel.SetActive(false);
         Time.timeScale = 1;
-
     }
 
     public void Pause()

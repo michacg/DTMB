@@ -35,6 +35,8 @@ public class CustomizationHandler : MonoBehaviour
         RightSprite = SpriteR.GetComponent<RectTransform>();
         sizeText.color = Color.white;
         LevelManager.instance.bobaQuantity = 20;
+        LevelManager.instance.startTime = 90f;
+        LevelManager.instance.timeRemaining = 90f;
     }
 
     void Update()

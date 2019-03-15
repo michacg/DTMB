@@ -55,6 +55,9 @@ public class Straw : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (LevelManager.instance.isSmallMode == true && lower_y != -2.24)
+            lower_y = -2.24f;
+
         //Debug.Log(interval - timeElapsed);
 
     	timeElapsed += Time.deltaTime;
