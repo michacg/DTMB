@@ -9,6 +9,7 @@ public class ButtonFunctions : MonoBehaviour
     public GameObject winnerPanel;
     public GameObject loserPanel;
     public GameObject audioManager;
+    public GameObject instructionPanel;
 
     private bool isPaused = false;
     private bool gameEnded = false;   //bool for audio stuff to make sure song doesnt repeatedly start in the update
@@ -17,6 +18,7 @@ public class ButtonFunctions : MonoBehaviour
     void Start()
     {
         audioManager = GameObject.FindWithTag("AudioManager");
+        Time.timeScale = 0;
     }
 
     // Update is called once per frame
@@ -50,6 +52,13 @@ public class ButtonFunctions : MonoBehaviour
                 LevelManager.instance.FreezeGame();
             }
         }
+    }
+
+    public void StartGame()
+    {
+        instructionPanel.SetActive(false);
+        Time.timeScale = 1;
+
     }
 
     public void Pause()

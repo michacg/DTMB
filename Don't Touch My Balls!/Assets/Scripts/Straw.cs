@@ -55,7 +55,7 @@ public class Straw : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(interval - timeElapsed);
+        //Debug.Log(interval - timeElapsed);
 
     	timeElapsed += Time.deltaTime;
 

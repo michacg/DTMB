@@ -378,7 +378,9 @@ MonoBehaviour:
 
     Shay Weller - Audio
 
-    Molina Mey - Art'
+    Molina Mey - Art
+
+    Adrian - Art'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 188614004b06192409eeb86cc65f9a6c, type: 2}
   m_sharedMaterial: {fileID: 21073467181749900, guid: 188614004b06192409eeb86cc65f9a6c,
@@ -456,11 +458,11 @@ MonoBehaviour:
     lineCount: 9
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
