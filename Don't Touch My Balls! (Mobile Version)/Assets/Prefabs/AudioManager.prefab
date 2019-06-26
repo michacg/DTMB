@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2222370550252259146
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8715759216347484496}
+  - component: {fileID: 7158829156724995846}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: AudioManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8715759216347484496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2222370550252259146}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7158829156724995846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2222370550252259146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7701e53c0912ef45bb25c2b68f16a01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSound:
+    name: 
+    loop: 0
+    isPlaying: 0
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  fadeInTime: 10
+  fadeOutTime: 10
+  sounds:
+  - name: Opening
+    loop: 0
+    isPlaying: 0
+    clip: {fileID: 8300000, guid: 4347c062b2e4f6b40af82213fcb42300, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: LoopTrack
+    loop: 1
+    isPlaying: 0
+    clip: {fileID: 8300000, guid: 63e57a88f0718b244a573777157e9885, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: GameOverLoop
+    loop: 0
+    isPlaying: 0
+    clip: {fileID: 8300000, guid: 64c9c092e4108ad458ec5a8edf31f375, type: 3}
+    volume: 0
+    pitch: 1
+    source: {fileID: 0}
+  - name: Pop
+    loop: 0
+    isPlaying: 0
+    clip: {fileID: 8300000, guid: 745cad14b2fd3af4b9d113b0f2596e49, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Victory
+    loop: 0
+    isPlaying: 0
+    clip: {fileID: 8300000, guid: c1e0dccdfe9a804489355cfad384cd2c, type: 3}
+    volume: 0.2
+    pitch: 1
+    source: {fileID: 0}
+  CR_running: 0
