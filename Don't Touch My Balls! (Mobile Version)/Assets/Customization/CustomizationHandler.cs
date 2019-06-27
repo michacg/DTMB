@@ -79,22 +79,22 @@ public class CustomizationHandler : MonoBehaviour
         if (color.Equals("milk"))
         {
             LevelManager.instance.teaFlavor = new Color(0.8078431f, 0.6941177f, 0.5843138f);
-            yLeft = 15;
+            yLeft = 65;
         }
         else if (color.Equals("matcha"))
         {
             LevelManager.instance.teaFlavor = new Color(0.6226543f, 0.8962264f, 0.5707102f);
-            yLeft = -35;
+            yLeft = 2;
         }
         else if (color.Equals("thai"))
         {
             LevelManager.instance.teaFlavor = new Color(1f, 0.5450981f, 0.2980392f);
-            yLeft = -85;
+            yLeft = -55;
         }
         else if (color.Equals("taro"))
         {
             LevelManager.instance.teaFlavor = new Color(0.6509804f, 0.5882353f, 0.7254902f);
-            yLeft = -135;
+            yLeft = -120;
         }
 
         flavorSelected = true;

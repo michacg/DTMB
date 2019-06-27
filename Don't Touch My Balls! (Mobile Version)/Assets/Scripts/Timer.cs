@@ -20,6 +20,6 @@ public class Timer : MonoBehaviour
         if (LevelManager.instance.timeRemaining <= 0)
             LevelManager.instance.timeRemaining = 0;
 
-        timerText.text = string.Format("Timer: {0:0.00}", LevelManager.instance.timeRemaining);
+        timerText.text = string.Format("{0:0.00}", LevelManager.instance.timeRemaining);
     }
 }
